@@ -27,7 +27,7 @@ This is a solution to the [Stats preview card component challenge on Frontend Me
 
 
 ### Links
-- Live Site URL: 
+- Live Site URL: https://venerable-tapioca-6d1a10.netlify.app
 
 
 ## My process
