@@ -26,9 +26,8 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-/* Custom property from Kevin Powell */
-html,
-body {
+/* Custom property from Kevin Powell. Removed the <body> element from the selector. */
+html {
   height: 100%;
 }
 

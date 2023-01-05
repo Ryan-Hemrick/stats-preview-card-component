@@ -27,6 +27,10 @@ body {
   align-items: center;
   justify-content: center;
 
+  /* Maintain vertical centering & allow the component to be fully visible on smaller heights.
+  This property is replacing "height: 100%;", which did not allow the body's height to match the component on smaller heights */
+  min-height: 100%;
+
   padding: 1.5rem;
 }
 
