@@ -1,0 +1,222 @@
+:root {
+  --clr-blue-dark: hsl(233, 47%, 7%);
+  --clr-blue-dark-desaturated: hsl(244, 38%, 16%);
+  --clr-violet: hsl(277, 64%, 61%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-white-transparent-75: hsla(0, 0%, 100%, 0.75);
+  --clr-white-transparent-60: hsla(0, 0%, 100%, 0.6);
+
+  --ff-Inter: 'Inter', Helvetica, Arial, sans-serif;
+  --ff-Lexend-Deca: 'Lexend Deca', Helvetica, Arial, sans-serif;
+}
+
+
+/*############################
+General Styles & Main Layout
+##############################*/
+
+body {
+  font-family: var(--ff-Inter);
+  font-weight: 400;
+
+  background-color: var(--clr-blue-dark);
+
+  /* Vertically and horizontally center 'stats' card.
+  Using flex instead of grid so that I can set a fixed width on desktop and have it automatically adjust on resize */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.5rem;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+/*############################
+Font Styles
+##############################*/
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  letter-spacing: 0.03125rem;
+}
+h1 span {
+  color: var(--clr-violet);
+}
+
+p {
+  color: var(--clr-white-transparent-75);
+  font-size: 0.938rem;
+}
+
+.stats__description {
+  line-height: 1.7;
+  width: 90%;
+}
+
+.stats__item span {
+  color: var(--clr-white);
+  font-family: var(--ff-Inter);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+
+  display: block;
+}
+
+.stats__item {
+  font-family: var(--ff-Lexend-Deca);
+  text-transform: uppercase;
+  font-size: 0.813rem;
+  letter-spacing: 0.047rem;
+}
+
+
+/*############################
+Layout, positioning, and spacing
+##############################*/
+
+main.stats {
+  background-color: var(--clr-blue-dark-desaturated);
+  border-radius: 12px;
+
+  /* Setting fixed dimensions to match the desktop design spec */
+  width: 1110px;
+  min-height: 450px;
+
+  /* Using flexbox to get the 'content' and the 'banner' image to sit next to eachother */
+  display: flex;
+  align-items: center;
+}
+
+.stats__content {
+  /* Using flex-basis to match the design width on Desktop */
+  flex-basis: 570px;
+
+  padding: 30px 6%;
+}
+
+.stats__flex {
+  /* Using flexbox to get the 'stat' <p> elements to sit next to eachother */
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  margin-top: 70px;
+}
+
+.stats__header {
+  margin-bottom: 30px;
+}
+
+
+/*############################
+Banner (img) styling
+##############################*/
+
+.stats__banner {
+  /* Need to set a fixed height on the 'banner' element to allow the image to stay at 100% of the height when 'align-items: center' is defined */
+  height: 450px;
+}
+.stats__banner picture {
+  background-color: var(--clr-violet);
+  height: 100%;
+  border-radius: 0 12px 12px 0;
+}
+.stats__banner img {
+  object-fit: cover;
+  height: 100%;
+  border-radius: 0 12px 12px 0;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+
+/*############################
+Mobile media query to adjust spacing and sizing
+##############################*/
+
+@media screen and (max-width: 768px) {
+
+  main.stats {
+    max-width: 360px;
+
+    /* Stack the 'banner' image on top of the 'content' */
+    flex-direction: column-reverse;
+    /* Align the 'banner' image to the very top of the wrapper */
+    justify-content: flex-end;
+  }
+
+  .stats__content {
+    /* Remove flex-basis on mobile to allow content to adjust column height naturally */
+    flex-basis: auto;  
+
+    text-align: center;
+    padding: 35px 1.5rem;
+  }
+
+  /* Reset img resizing to defaults */
+  .stats__banner img {
+    width: 100%;
+    height: auto;
+
+    /* A couple pixels of background color is showing through on mobile */
+    object-fit: fill;
+  }
+  .stats__banner {
+    height: auto;
+  }
+
+  .stats__banner picture, .stats__banner img {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .stats__flex {
+    /* Stack the 'stat' <p> elements on mobile */
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    margin-top: 35px;
+  }
+
+  .stats__description {
+    /* Adjusting width and font-size to better match mobile design */
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.875rem;
+  }
+  .stats__header {
+    margin-bottom: 15px;
+  }
+
+}
+
+
+/*############################
+Attribution Styles
+##############################*/
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 2px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-size: 11px;
+  text-align: center;
+  color: var(--clr-white);
+  z-index: -1;
+}
+footer .attribution a {
+  color: hsl(228, 45%, 44%);
+}
