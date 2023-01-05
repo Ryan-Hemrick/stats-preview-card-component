@@ -42,7 +42,7 @@ This is a solution to the [Stats preview card component challenge on Frontend Me
 
 
 ### What I learned
-- This challenge provided a great opportunity to continue practicing flexbox layouts. This project was a step up in complexity and provided a good challenge to work on.
+- This challenge provided a great opportunity to continue practicing flexbox layouts. This project was a step up in layout complexity and required the use of more flexbox properties
 
 
 ## Author
